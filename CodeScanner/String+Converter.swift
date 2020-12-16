@@ -60,7 +60,7 @@ public extension String {
     private func pregMatche(pattern: String) -> Bool {
         
         guard let regex = try? NSRegularExpression(pattern: pattern, options: []) else { return false }
-        let matches = regex.matches(in: self, options: [], range: NSRange(location: 0, length: self.characters.count))
+        let matches = regex.matches(in: self, options: [], range: NSRange(location: 0, length: self.count))
         return matches.count > 0
     }
 }

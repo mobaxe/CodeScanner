@@ -47,7 +47,7 @@ public struct Code {
     public static func generateQRCode(text: String, inputCorrectionLevel level: String = "M") -> UIImage? {
         
         guard let data = text.data(using: String.Encoding.utf8),
-            let filter = CIFilter(name: "CIQRCodeGenerator", withInputParameters: ["inputMessage": data, "inputCorrectionLevel": level]),
+              let filter = CIFilter(name: "CIQRCodeGenerator", parameters: ["inputMessage": data, "inputCorrectionLevel": level]),
             let outputImage = filter.outputImage
             else { return nil }
         
@@ -62,7 +62,7 @@ public struct Code {
     public static func generate128Barcode(text: String) -> UIImage? {
         
         guard let data = text.data(using: String.Encoding.utf8),
-            let filter = CIFilter(name: "CICode128BarcodeGenerator", withInputParameters: ["inputMessage": data]),
+              let filter = CIFilter(name: "CICode128BarcodeGenerator", parameters: ["inputMessage": data]),
             let outputImage = filter.outputImage
             else { return nil }
         
